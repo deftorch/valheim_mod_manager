@@ -66,10 +66,6 @@ def main():
         if icon_path.exists():
             app.setWindowIcon(QIcon(str(icon_path)))
         
-        # Enable high DPI scaling
-        app.setAttribute(Qt.ApplicationAttribute.AA_EnableHighDpiScaling)
-        app.setAttribute(Qt.ApplicationAttribute.AA_UseHighDpiPixmaps)
-        
         # Load stylesheet
         stylesheet_path = Settings.RESOURCES_DIR / "styles" / "dark_theme.qss"
         if stylesheet_path.exists():

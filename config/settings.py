@@ -29,10 +29,10 @@ class Settings:
     DATABASE_PATH: Final[Path] = DATA_DIR / "valheim_mods.db"
     
     # Thunderstore API
-    THUNDERSTORE_API_BASE: Final[str] = "https://thunderstore.io/api/experimental"
+    THUNDERSTORE_API_BASE: Final[str] = "https://thunderstore.io/c/valheim/api/v1"
     THUNDERSTORE_COMMUNITY: Final[str] = "valheim"
     THUNDERSTORE_PACKAGES_URL: Final[str] = (
-        f"{THUNDERSTORE_API_BASE}/community/{THUNDERSTORE_COMMUNITY}/package/"
+        f"{THUNDERSTORE_API_BASE}/package/"
     )
     
     # Network Settings
