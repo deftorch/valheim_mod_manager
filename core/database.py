@@ -21,7 +21,19 @@ class Database(LoggerMixin):
         self.db_path = db_path or Settings.DATABASE_PATH
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._connection = None
+
+        # Register adapters for datetime compatibility
+        sqlite3.register_adapter(datetime, self._adapt_datetime)
+        sqlite3.register_converter("TIMESTAMP", self._convert_datetime)
     
+    @staticmethod
+    def _adapt_datetime(dt):
+        return dt.isoformat()
+
+    @staticmethod
+    def _convert_datetime(val):
+        return datetime.fromisoformat(val.decode())
+
     @contextmanager
     def get_connection(self):
         """Context manager for database connections"""

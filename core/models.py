@@ -3,11 +3,13 @@ Core Data Models with Validation
 """
 
 from dataclasses import dataclass, field, asdict
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 import json
-from PyQt6.QtGui import QPixmap
+
+if TYPE_CHECKING:
+    from PyQt6.QtGui import QPixmap
 
 from config.settings import Settings
 from core.exceptions import ValidationError, InvalidModIDError
@@ -100,8 +102,10 @@ class Mod:
         parts = mod_id.split('-', 1)
         return len(parts) == 2 and all(p.strip() for p in parts)
     
-    def get_icon_pixmap(self, size: int = Settings.ICON_SIZE_MEDIUM) -> QPixmap:
+    def get_icon_pixmap(self, size: int = Settings.ICON_SIZE_MEDIUM) -> 'QPixmap':
         """Get mod icon as QPixmap"""
+        from PyQt6.QtGui import QPixmap
+
         if self.icon_path and self.icon_path.exists():
             pixmap = QPixmap(str(self.icon_path))
             if not pixmap.isNull():
