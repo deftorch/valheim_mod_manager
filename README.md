@@ -3,7 +3,7 @@
 A modern, feature-rich mod manager for Valheim with smart deployment, dependency resolution, and profile management.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![Python](https://img.shields.io/badge/python-3.9+-green.svg)
+![Python](https://img.shields.io/badge/python-3.9--3.13+-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-orange.svg)
 
 ## ✨ Features
